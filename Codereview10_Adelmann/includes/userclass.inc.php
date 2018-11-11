@@ -3,15 +3,17 @@
 class Media{
 	public $media_title;
 	public $media_image;
+	public $media_isbn;
 	public $media_short_description;
 	public $media_publish_date;
 	public $media_type;
 
-	function __construct($media_title_arg, $media_image_arg, $media_short_description_arg, $media_publish_date_arg, $media_type_arg)
+	function __construct($media_title_arg, $media_image_arg, $media_isbn_arg, $media_short_description_arg, $media_publish_date_arg, $media_type_arg)
 	{
 		
 		$this->media_title = $media_title_arg;
 		$this->media_image = $media_image_arg;
+		$this->media_isbn = $media_isbn_arg;
 		$this->media_short_description = $media_short_description_arg;
 		$this->media_publish_date = $media_publish_date_arg;
 		$this->media_type = $media_type_arg;

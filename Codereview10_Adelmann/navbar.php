@@ -12,13 +12,10 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="add_book.php">Add</a>
+              <a class="nav-link" href="add_book.php">Upload</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Update</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Delete</a>
+              <a class="nav-link" href="update.php">Update/Delete</a>
             </li>
           </ul>
         </div>

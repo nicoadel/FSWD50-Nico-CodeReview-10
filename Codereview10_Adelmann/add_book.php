@@ -10,7 +10,7 @@
    include_once 'navbar.php';
    ?>
    <div class="upload_form">
-   	<form  action="includes/signup.inc.php" method="POST">
+   	<form  action="includes/add_book.inc.php" method="POST">
    		<h1>Upload: </h1>
    		<br>
    		<br>
@@ -18,6 +18,9 @@
 	<br>
 	<br>
 	<input type="text" name="img_url" placeholder="img_url">
+	<br>
+	<br>
+	<input type="text" name="ISBN" placeholder="ISBN">
 	<br>
 	<br>
 	<input type="text" name="description" placeholder="Short Description">
