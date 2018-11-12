@@ -25,13 +25,15 @@
 
       <h1 class="my-4 text-center text-lg-left">Gallery of Books</h1>
       <?php
-      if (isset($_SESSION['userId'])){
-      echo '<p>You are logged in!</p>';
-      }
-      else{
-        echo '<p>You are logged out!</p>';
-      }
-       ?>
+            if (isset($_SESSION['userId']))
+            {
+               echo '<p>You are logged in!</p>';
+             }
+             else
+              {
+                 echo '<p>You are logged out!</p>';
+              }
+                  ?>
       <div class="row text-center text-lg-left">
       <?php
               require 'includes/output.inc.php';

@@ -50,12 +50,16 @@
 			<td><?php echo $row['media_short_description']; ?></td>
 			<td><?php echo $row['publish_date']; ?></td>
 			<td><?php echo $row['type']; ?></td>
-			<td>
-				<a href="update.php?edit=<?php echo $row['media_id']; ?>" class="btn btn-info" >Edit</a>
-			</td>
-			<td>
-				<a href="update.php?del=<?php echo $row['media_id']; ?>" class="btn btn-danger">Delete</a>
-			</td>
+			<?php
+			if (isset($_SESSION['userId'])){
+			echo "<td>";
+			echo "<a href='update.php?edit='". $row['media_id'] ."class='btn btn-info'>Edit</a>";
+			echo "</td>";
+			echo "<td>";
+			echo	"<a href='update.php?del='". $row['media_id']  ." class='btn btn-danger'>Delete</a>";
+			echo "</td>";
+			}
+			?>
 		</tr>
 	<?php } ?>
 </table>
