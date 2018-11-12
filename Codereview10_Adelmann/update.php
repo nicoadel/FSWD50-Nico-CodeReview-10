@@ -30,7 +30,7 @@
 ?>
 	<?php $results = mysqli_query($conn, "SELECT * FROM media"); ?>
 	
-<table>
+<table class="table">
 	<thead>
 		<tr>
 			<th>Name</th>
@@ -51,41 +51,42 @@
 			<td><?php echo $row['publish_date']; ?></td>
 			<td><?php echo $row['type']; ?></td>
 			<td>
-				<a href="update.php?edit=<?php echo $row['media_id']; ?>" class="edit_btn" >Edit</a>
+				<a href="update.php?edit=<?php echo $row['media_id']; ?>" class="btn btn-info" >Edit</a>
 			</td>
 			<td>
-				<a href="update.php?del=<?php echo $row['media_id']; ?>" class="del_btn">Delete</a>
+				<a href="update.php?del=<?php echo $row['media_id']; ?>" class="btn btn-danger">Delete</a>
 			</td>
 		</tr>
 	<?php } ?>
 </table>
+<div class="inputform">
 	<form method="post" action="includes/update_delete.inc.php" >
 		<input type="hidden" name="id" value="<?php echo $id; ?>">
-		<div class="input-group">
-			<label>Name</label>
-			<input type="text" name="name" value="<?php echo $name; ?>">
+		<div class="input-group form-group">
+			<label class="col">Name: </label>
+			<input  type="text" name="name" value="<?php echo $name; ?>">
 		</div>
-		<div class="input-group">
-			<label>Image</label>
+		<div class="input-group form-group">
+			<label class="col">Image: </label>
 			<input type="text" name="image" value="<?php echo $image; ?>">
 		</div>
-		<div class="input-group">
-			<label>ISBN</label>
+		<div class="input-group form-group">
+			<label class="col">ISBN: </label>
 			<input type="text" name="isbn" value="<?php echo $isbn; ?>">
 		</div>
-		<div class="input-group">
-			<label>Description</label>
+		<div class="input-group form-group">
+			<label class="col">Description: </label>
 			<input type="text" name="description" value="<?php echo $description; ?>">
 		</div>
-		<div class="input-group">
-			<label>Date</label>
+		<div class="input-group form-group">
+			<label class="col">Date: </label>
 			<input type="text" name="date" value="<?php echo $date; ?>">
 		</div>
-		<div class="input-group">
-			<label>Type</label>
+		<div class="input-group form-group">
+			<label class="col">Type: </label>
 			<input type="text" name="type" value="<?php echo $type; ?>">
 		</div>
-		<div class="input-group">
+		<div class="input-group form-group inputform">
 			<?php if ($update == true): ?>
 	<button class="btn" type="submit" name="update" style="background: #556B2F;" >update</button>
 <?php else: ?>
@@ -93,5 +94,8 @@
 <?php endif ?>
 		</div>
 	</form>
+</div>
+<?php 
+include_once "footer.php"; ?>
 </body>
 </html>

@@ -17,9 +17,14 @@ body {
 	padding-top: 200px;
 	padding-bottom: 200px;
 	justify-content: center;
-
-
 }
+.inputform
+{
+display: flex;
+justify-content: center;
+}
+
+
 
 @media (min-width: 992px) {
   body {
