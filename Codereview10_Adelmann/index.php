@@ -10,10 +10,7 @@
 
     <title>Adelmann Library</title>
 
-    <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
     <link href="css/thumbnail-gallery.css" rel="stylesheet">
 
   </head>
@@ -21,23 +18,30 @@
   <body>
 
    <?php
-   include_once 'navbar.php';
+   require 'navbar.php';
    ?>
     <!-- Page Content -->
     <div class="container">
 
       <h1 class="my-4 text-center text-lg-left">Gallery of Books</h1>
-
+      <?php
+      if (isset($_SESSION['userId'])){
+      echo '<p>You are logged in!</p>';
+      }
+      else{
+        echo '<p>You are logged out!</p>';
+      }
+       ?>
       <div class="row text-center text-lg-left">
       <?php
-              include_once 'includes/output.inc.php';
+              require 'includes/output.inc.php';
              ?>
       </div>
     </div>
     <!-- /.container -->
 
     <?php
-    include_once 'footer.php';
+    require 'footer.php';
     ?>
 
     <!-- Bootstrap core JavaScript -->
