@@ -2,8 +2,6 @@
 <html>
 <head>
 	<title></title>
-	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/thumbnail-gallery.css" rel="stylesheet">
 </head>
 <body>
 	<?php
@@ -13,40 +11,29 @@
    	<form  action="includes/add_book.inc.php" method="POST">
    		<h1>Upload: </h1>
    		<br>
-   		<br>
-	<input type="text" name="media_title" placeholder="Book name">
+	<input class="form-control" type="text" name="media_title" placeholder="Book name">
 	<br>
+	<input class="form-control" type="text" name="img_url" placeholder="img_url">
 	<br>
-	<input type="text" name="img_url" placeholder="img_url">
+	<input class="form-control" type="text" name="ISBN" placeholder="ISBN">
 	<br>
+	<input class="form-control" type="text" name="description" placeholder="Short Description">
 	<br>
-	<input type="text" name="ISBN" placeholder="ISBN">
+	<input class="form-control" type="text" name="publish_date" placeholder="publish date">
 	<br>
-	<br>
-	<input type="text" name="description" placeholder="Short Description">
-	<br>
-	<br>
-	<input type="text" name="publish_date" placeholder="publish date">
-	<br>
-	<br>
-	<select name="type">
+	<select class="custom-select" name="type">
 		<option value="CD">CD</option>
 		<option value="BOOK">BOOK</option>
 		<option value="DVD">DVD</option>
 	</select>
 	<br>
 	<br>
-	<button type="submit" name="submit">Add the book</button>
+	<button class="btn btn-info" type="submit" name="submit">Add the book</button>
 </form>
    </div>
 
-
-
-
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <?php
-    include_once 'footer.php';
+    require 'footer.php';
     ?>
 </body>
 </html>

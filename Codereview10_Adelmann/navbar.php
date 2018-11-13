@@ -27,22 +27,45 @@ session_start();
                     <li class="nav-item">
                       <a class="nav-link" href="add_book.php">Upload</a>
                     </li>
-                    <li class="nav-item">
-                       <a class="nav-link" href="update.php">Update/Delete</a>
+                    <?php
+                     if (isset($_SESSION['userId']))
+                      {
+                        echo '<li class="nav-item">
+                      <a class="nav-link" href="update.php">Update/Delete</a>
                     </li>
+                      ';
+                      }
+                      ?>
                     <li class="nav-item">
+                       <a class="nav-link" href="search_book.php">Search</a>
+                    </li>
+                    <?php
+                     if (!isset($_SESSION['userId']))
+                      {
+                        echo '<li class="nav-item">
                       <a class="nav-link" href="signup.php">Signup</a>
                     </li>
-                  </ul>
-                   <form class="forminput" action="includes/login.inc.php" method="POST">
+                      ';
+                      }
+                    ?>
+                    </ul>
+                   <?php
+                      if (isset($_SESSION['userId']))
+                      {
+                         echo ' <form action="includes/logout.inc.php" method="POST">
+                            <button class="btn btn-danger"type="submit" name="logout-submit">Logout</button>
+                          </form> ';
+                       }
+                       else
+                        {
+                           echo ' <form class="forminput" action="includes/login.inc.php" method="POST">
                          <input class="form-control" type="text" name="mailuid" placeholder="Username/Email...">
                          <input class="form-control" type="password" name="pwd" placeholder="Password...">
                          <button class="btn btn-info" type="submit" name="login-submit">Login</button>
                           
-                   </form>
-                   <form action="includes/logout.inc.php" method="POST">
-                            <button class="btn btn-danger"type="submit" name="logout-submit">Logout</button>
-                          </form> 
+                   </form>';
+                        }
+                            ?>
                 </div>
               </nav>
             </div>

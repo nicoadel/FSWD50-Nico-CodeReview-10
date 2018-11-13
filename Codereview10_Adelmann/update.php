@@ -2,12 +2,10 @@
 <html>
 <head>
 	<title>EDIT / DELETE</title>
-		<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-		<link href="css/thumbnail-gallery.css" rel="stylesheet">
 </head>
 <body>
 	<?php 
-	include "includes/update_delete.inc.php";
+	include "includes/update_delete.inc.php";	
 	include_once "navbar.php";
 	include_once "includes/dbh.inc.php";
 	?>
@@ -30,7 +28,7 @@
 ?>
 	<?php $results = mysqli_query($conn, "SELECT * FROM media"); ?>
 	
-<table class="table">
+<table class="table bordered">
 	<thead>
 		<tr>
 			<th>Name</th>
@@ -50,45 +48,47 @@
 			<td><?php echo $row['media_short_description']; ?></td>
 			<td><?php echo $row['publish_date']; ?></td>
 			<td><?php echo $row['type']; ?></td>
-			<?php
-			if (isset($_SESSION['userId'])){
-			echo "<td>";
-			echo "<a href='update.php?edit='". $row['media_id'] ."class='btn btn-info'>Edit</a>";
-			echo "</td>";
-			echo "<td>";
-			echo	"<a href='update.php?del='". $row['media_id']  ." class='btn btn-danger'>Delete</a>";
-			echo "</td>";
+			<?php if (isset($_SESSION['userId']))
+			{
+			echo '<td>
+				<a href="update.php?edit='. $row['media_id']. '" class="btn btn-info" >Edit</a>
+			</td>
+			<td>
+				<a href="update.php?del='.$row['media_id'].'" class="btn btn-danger">Delete</a>
+			</td>';
 			}
 			?>
-		</tr>
+			</tr>
 	<?php } ?>
 </table>
+
+
 <div class="inputform">
 	<form method="post" action="includes/update_delete.inc.php" >
 		<input type="hidden" name="id" value="<?php echo $id; ?>">
 		<div class="input-group form-group">
 			<label class="col">Name: </label>
-			<input  type="text" name="name" value="<?php echo $name; ?>">
+			<input class="form-control" type="text" name="name" value="<?php echo $name; ?>">
 		</div>
 		<div class="input-group form-group">
 			<label class="col">Image: </label>
-			<input type="text" name="image" value="<?php echo $image; ?>">
+			<input class="form-control" type="text" name="image" value="<?php echo $image; ?>">
 		</div>
 		<div class="input-group form-group">
 			<label class="col">ISBN: </label>
-			<input type="text" name="isbn" value="<?php echo $isbn; ?>">
+			<input class="form-control" type="text" name="isbn" value="<?php echo $isbn; ?>">
 		</div>
 		<div class="input-group form-group">
 			<label class="col">Description: </label>
-			<input type="text" name="description" value="<?php echo $description; ?>">
+			<input class="form-control" type="text" name="description" value="<?php echo $description; ?>">
 		</div>
 		<div class="input-group form-group">
 			<label class="col">Date: </label>
-			<input type="text" name="date" value="<?php echo $date; ?>">
+			<input class="form-control" type="text" name="date" value="<?php echo $date; ?>">
 		</div>
 		<div class="input-group form-group">
 			<label class="col">Type: </label>
-			<input type="text" name="type" value="<?php echo $type; ?>">
+			<input class="form-control" type="text" name="type" value="<?php echo $type; ?>">
 		</div>
 		<div class="input-group form-group inputform">
 			<?php if ($update == true): ?>
@@ -100,8 +100,7 @@
 	</form>
 </div>
 <?php 
-include_once "footer.php"; ?>
-<script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+require "footer.php"; ?>
+<script src="javascript/search.js" type="text/javascript" charset="utf-8" async defer></script>
 </body>
 </html>
